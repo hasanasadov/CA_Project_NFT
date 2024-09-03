@@ -4,7 +4,6 @@ const pswinput = document.querySelector("#pswdiv input");
 const repswinput = document.querySelector("#repswdiv input");
 const form = document.querySelector("form");
 
-
 //!--------- FUNCTIONS ---------!//
 
 
@@ -203,11 +202,11 @@ form.addEventListener("submit", (e) => {
 
 
 
+
 //! ---------- Initialization ----------!//
 nameInput();
 
 emailInput();
-
 passwordInput();
 showPassword();
 

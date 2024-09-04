@@ -34,6 +34,10 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: start;
+    a:hover{
+        transition: all 0.4s;
+        color: #ff7575;
+    }
 }
 .footer-left {
     margin-right: 0px;
@@ -61,9 +65,7 @@ footer {
     text-transform: capitalize;
     margin-bottom: 30px;
 }
-.footer-left a {
-    margin-bottom: 20px;
-}
+
 .footer-left a {
     margin-bottom: 15px;
 }

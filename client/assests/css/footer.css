@@ -1,7 +1,7 @@
 
 footer {
     display: flex;
-    padding: 40px 140px;
+    padding: 40px 195px;
     flex-direction: column;
     align-items: center;
     gap: 30px;
@@ -198,7 +198,7 @@ footer form {
     }
 }
 
-@media (max-width: 1085px) {
+@media (max-width: 1240px) {
     .footer-top {
         flex-direction: column;
         gap: 30px;

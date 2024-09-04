@@ -69,10 +69,12 @@ nav {
         display: flex;
         gap: 10px;
     }
-    #logo {
-        width: 149.56px;
-        height: 14.85px;
-        flex-shrink: 0;
+    nav {
+        #logo {
+            width: 149.56px;
+            height: 14.85px;
+            flex-shrink: 0;
+        }
     }
 }
 

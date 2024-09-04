@@ -21,3 +21,10 @@ a {
 input:focus{
     outline: none;
 }
+
+section {
+    padding: 80px 115px;
+    @media (max-width: 768px) {
+        padding: 40px;   
+    }
+}

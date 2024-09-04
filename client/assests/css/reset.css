@@ -6,6 +6,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+body {
+    font-family: "Roboto", sans-serif;
+    background: var(--Background, #2b2b2b);
+    color: var(--Text, #fff);
+}
 a {
     text-decoration: none;
     color: #fff;

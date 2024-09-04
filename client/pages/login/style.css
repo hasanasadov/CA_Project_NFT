@@ -1,12 +1,3 @@
-
-
-body {
-    font-family: "Roboto", sans-serif;
-    background: var(--Background, #2b2b2b);
-    color: var(--Text, #fff);
-}
-
-
 #middle {
     display: flex;
     gap: 60px;
@@ -32,7 +23,7 @@ body {
     display: flex;
     align-items: start;
     background: var(--Background, #2b2b2b);
-    .middle-right-content{
+    .middle-right-content {
         width: 100%;
     }
     h2 {
@@ -124,8 +115,10 @@ form {
     .form-group {
         width: 90% !important;
     }
-    button {
-        width: 90% !important;
+    form {
+        button {
+            width: 90% !important;
+        }
     }
 }
 
@@ -163,9 +156,11 @@ form {
         margin: 0;
     }
 
-    button {
-        width: 90% !important;
-        transform: translateX(5%);
+    form {
+        button {
+            width: 90% !important;
+            transform: translateX(5%);
+        }
     }
 }
 

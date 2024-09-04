@@ -1,7 +1,7 @@
 
 footer {
     display: flex;
-    padding: 40px 115px;
+    padding: 40px 72px;
     flex-direction: column;
     align-items: center;
     gap: 30px;
@@ -123,6 +123,34 @@ footer {
     }
 }
 
+form {
+    input {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        display: flex;
+        width: 70%;
+        height: 46px;
+        padding: 0px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        color: #fff;
+        text-align: center;
+        font-family: "Work Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 140%; /* 22.4px */
+        border-radius: 20px;
+        background: #a259ff;
+        border: none;
+    }
+}
+
 footer form {
     position: relative;
     display: flex;
@@ -131,7 +159,7 @@ footer form {
     padding: 16px 0px 16px 20px;
     align-items: center;
     border-radius: 20px;
-    background: var(--Text, #fff);
+    background: #fff;
     button {
         display: flex;
         height: 60px;

@@ -1,19 +1,10 @@
-
-
-body {
-    font-family: "Roboto", sans-serif;
-    background: var(--Background, #2b2b2b);
-    color: var(--Text, #fff);
-}
-
-
 #middle {
     display: flex;
     gap: 60px;
 }
 .middle-right {
     display: flex;
-    padding: 100px 0px;
+    padding: 60px 10px ;
     flex-direction: column;
     align-items: flex-start;
 }
@@ -32,6 +23,9 @@ body {
     display: flex;
     align-items: center;
     background: var(--Background, #2b2b2b);
+    .middle-right-content{
+        width: 100% !important;
+    }
     h2 {
         color: var(--White, #fff);
 
@@ -57,33 +51,6 @@ body {
     }
 }
 /*!------------- FORM -------------*/
-form {
-    input {
-        padding: 0.5rem;
-        margin-bottom: 1rem;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-    button {
-        display: flex;
-        width: 70%;
-        height: 46px;
-        padding: 0px 20px;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        color: #fff;
-        text-align: center;
-        font-family: "Work Sans";
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 140%; /* 22.4px */
-        border-radius: 20px;
-        background: #a259ff;
-        border: none;
-    }
-}
 
 /*?------------- EACH INPUT -------------*/
 .form-group {

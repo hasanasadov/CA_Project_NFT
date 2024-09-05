@@ -163,10 +163,11 @@
         position: absolute;
         content: "";
         width: 100%;
-        height: 1px;
+        height: 3px;
         background: #858584;
         bottom: 0px;
-        border-radius: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
     }
 }
 .nft-top-right {
@@ -265,7 +266,7 @@
         flex-wrap: wrap;
     }
     .nft-item {
-        width: 47% !important;
+        width: 47.5% !important;
     }
 }
 
@@ -282,6 +283,9 @@
             display: flex !important;
             width: 100% !important;
         }
+    }
+    #load-more{
+        width: 100%;
     }
 }
 

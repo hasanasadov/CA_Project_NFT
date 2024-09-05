@@ -42,160 +42,174 @@ function showRePassword() {
 }
 
 //!--------- USERNAME INPUT VALIDATION
+function validateNameInput() {
+    let value = nameinput.value.trim();
+    let isTrue = true;
+    if (value.length >= 3) {
+        nameinput.style.border = "2px solid green";
+        nameinput.parentElement.classList.add("done6");
+        nameinput.parentElement.classList.remove("error6");
+        nameinput.parentElement.classList.remove("errorbadge");
+    } else {
+        nameinput.style.border = "2px solid red";
+        nameinput.parentElement.classList.add("error6");
+        nameinput.parentElement.classList.remove("done6");
+        nameinput.parentElement.classList.add("errorbadge");
+        isTrue = false;
+    }
+    return isTrue;
+}
+
 function nameInput() {
-    nameinput.addEventListener("keyup", (e) => {
-        let value = e.target.value.trim();
-        let isTrue = true;
-        if (value.length >= 3) {
-            nameinput.style.border = "2px solid green";
-            nameinput.parentElement.classList.add("done6");
-            nameinput.parentElement.classList.remove("error6");
-            nameinput.parentElement.classList.remove("errorbadge");
-        } else {
-            nameinput.style.border = "2px solid red";
-            nameinput.parentElement.classList.add("error6");
-            nameinput.parentElement.classList.remove("done6");
-            nameinput.parentElement.classList.add("errorbadge");
-            isTrue = false;
-        }
-        return isTrue;
-    });
+    nameinput.addEventListener("keyup", validateNameInput);
 }
 
 
 //!--------- EMAIL INPUT VALIDATION
+function validateEmailInput() {
+    let value = emailinput.value.trim();
+    let isTrue = true;
+    if (value.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+        emailinput.style.border = "2px solid green";
+        emailinput.parentElement.classList.remove("error8");
+        emailinput.parentElement.classList.remove("errorbadge");
+        emailinput.parentElement.classList.add("done8");
+    } else {
+        emailinput.style.border = "2px solid red";
+        emailinput.parentElement.classList.add("error8");
+        emailinput.parentElement.classList.remove("done8");
+        emailinput.parentElement.classList.add("errorbadge");
+        isTrue = false;
+    }
+    return isTrue;
+}
+
 function emailInput() {
-    emailinput.addEventListener("keyup", (e) => {
-        let value = e.target.value.trim();
-        let isTrue = true;
-        if (value.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
-            emailinput.style.border = "2px solid green";
-            emailinput.parentElement.classList.remove("error8");
-            emailinput.parentElement.classList.remove("errorbadge");
-            emailinput.parentElement.classList.add("done8");
-        } else {
-            emailinput.style.border = "2px solid red";
-            emailinput.parentElement.classList.add("error8");
-            emailinput.parentElement.classList.remove("done8");
-            emailinput.parentElement.classList.add("errorbadge");
-            isTrue = false;
-        }
-        return isTrue;
-    });
+    emailinput.addEventListener("keyup", validateEmailInput);
 }
 
 //!--------- PASSWORD INPUT VALIDATION
+
+function validatePasswordInput() {
+    let value = pswinput.value.trim();
+    let isTrue = true;
+
+    if (value.match(/[0-9]/)) {
+        pswinput.parentElement.classList.remove("error1");
+        pswinput.parentElement.classList.add("done1");
+    } else {
+        isTrue = false;
+        pswinput.parentElement.classList.add("error1");
+        pswinput.parentElement.classList.remove("done1");
+    }
+
+    if (value.match(/[!@#$%^&\*\-_\.\\,`~()+=<>"':;\[\]{}/?]/)) {
+        pswinput.parentElement.classList.remove("error2");
+        pswinput.parentElement.classList.add("done2");
+    } else {
+        isTrue = false;
+        pswinput.parentElement.classList.add("error2");
+        pswinput.parentElement.classList.remove("done2");
+    }
+
+    if (value.length >= 8) {
+        pswinput.parentElement.classList.remove("error3");
+        pswinput.parentElement.classList.add("done3");
+    } else {
+        isTrue = false;
+        pswinput.parentElement.classList.add("error3");
+        pswinput.parentElement.classList.remove("done3");
+    }
+
+    if (value.match(/[A-Z]/)) {
+        pswinput.parentElement.classList.remove("error4");
+        pswinput.parentElement.classList.add("done4");
+    } else {
+        pswinput.style.border = "2px solid red";
+        isTrue = false;
+        pswinput.parentElement.classList.add("error4");
+        pswinput.parentElement.classList.remove("done4");
+    }
+
+    if (value.match(/[a-z]/)) {
+        pswinput.parentElement.classList.remove("error5");
+        pswinput.parentElement.classList.add("done5");
+    } else {
+        isTrue = false;
+        pswinput.parentElement.classList.add("error5");
+        pswinput.parentElement.classList.remove("done5");
+    }
+
+    if (isTrue) {
+        pswinput.style.border = "2px solid green";
+        pswinput.parentElement.classList.remove("errorbadge");
+        pswinput.nextElementSibling.classList.remove("wdanger");
+    } else {
+        pswinput.nextElementSibling.classList.add("wdanger");
+        pswinput.parentElement.classList.add("errorbadge");
+        pswinput.style.border = "2px solid red";
+    }
+
+    return isTrue;
+}
+
 function passwordInput() {
-    pswinput.addEventListener("keyup", (e) => {
-        let value = e.target.value.trim();
-        let isTrue = true;
-        if (value.match(/[0-9]/)) {
-            pswinput.parentElement.classList.remove("error1");
-            pswinput.parentElement.classList.add("done1");
-        } else {
-            isTrue = false;
-            pswinput.parentElement.classList.add("error1");
-            pswinput.parentElement.classList.remove("done1");
-        }
-
-        if (value.match(/[!@#$%^&\*\-_\.\\,`~()+=<>"':;\[\]{}/?]/)) {
-            pswinput.parentElement.classList.remove("error2");
-            pswinput.parentElement.classList.add("done2");
-        } else {
-            isTrue = false;
-            pswinput.parentElement.classList.add("error2");
-            pswinput.parentElement.classList.remove("done2");
-        }
-
-        if (value.length >= 8) {
-            pswinput.parentElement.classList.remove("error3");
-            pswinput.parentElement.classList.add("done3");
-        } else {
-            isTrue = false;
-            pswinput.parentElement.classList.add("error3");
-            pswinput.parentElement.classList.remove("done3");
-        }
-
-        if (value.match(/[A-Z]/)) {
-            pswinput.parentElement.classList.remove("error4");
-            pswinput.parentElement.classList.add("done4");
-        } else {
-            pswinput.style.border = "2px solid red";
-            isTrue = false;
-            pswinput.parentElement.classList.add("error4");
-            pswinput.parentElement.classList.remove("done4");
-        }
-
-        if (value.match(/[a-z]/)) {
-            pswinput.parentElement.classList.remove("error5");
-            pswinput.parentElement.classList.add("done5");
-        } else {
-            isTrue = false;
-            pswinput.parentElement.classList.add("error5");
-            pswinput.parentElement.classList.remove("done5");
-        }
-
-        if (isTrue) {
-            pswinput.style.border = "2px solid green";
-            pswinput.parentElement.classList.remove("errorbadge");
-            pswinput.nextElementSibling.classList.remove("wdanger");
-        } else {
-            pswinput.nextElementSibling.classList.add("wdanger");
-            pswinput.parentElement.classList.add("errorbadge");
-            pswinput.style.border = "2px solid red";
-        }
-
-        return isTrue;
-    });
+    pswinput.addEventListener("keyup", validatePasswordInput);
 }
 
 //!--------- RE-PASSWORD INPUT VALIDATION
+
+function validateRePasswordInput() {
+    let value = pswinput.value.trim();
+    let psw = repswinput.value.trim();
+    let isTrue = true;
+    if (value == psw && psw.length > 0) {
+        repswinput.style.border = "2px solid green";
+        repswinput.parentElement.classList.remove("error7");
+        repswinput.parentElement.classList.remove("errorbadge");
+        repswinput.parentElement.classList.add("done7");
+        repswinput.nextElementSibling.classList.remove("wdanger");
+    } else {
+        repswinput.style.border = "2px solid red";
+        repswinput.parentElement.classList.remove("done7");
+        repswinput.parentElement.classList.add("error7");
+        repswinput.parentElement.classList.add("errorbadge");
+        repswinput.nextElementSibling.classList.add("wdanger");
+        isTrue = false;
+    }
+    return isTrue;
+}
+
 function rePasswordInput() {
-    repswinput.addEventListener("keyup", (e) => {
-        let value = pswinput.value.trim();
-        let psw = e.target.value.trim();
-        let isTrue = true;
-        if (value == psw && psw.length > 0) {
-            repswinput.style.border = "2px solid green";
-            repswinput.parentElement.classList.remove("error7");
-            repswinput.parentElement.classList.remove("errorbadge");
-            repswinput.parentElement.classList.add("done7");
-            repswinput.nextElementSibling.classList.remove("wdanger");
-        } else {
-            repswinput.style.border = "2px solid red";
-            repswinput.parentElement.classList.remove("done7");
-            repswinput.parentElement.classList.add("error7");
-            repswinput.parentElement.classList.add("errorbadge");
-            repswinput.nextElementSibling.classList.add("wdanger");
-            isTrue = false;
-        }
-        return isTrue;
-    });
+    repswinput.addEventListener("keyup", validateRePasswordInput);
 }
 
 
 //!--------- FORM SUBMISSION ----------!//
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    let isTrue = true;
-    if (nameInput() == false || nameinput.value.length === 0 ) {
-        console.log(nameinput.value);
-        isTrue = false;
-    }
-    if (emailInput() == false || emailinput.value.length === 0) {
-        isTrue = false;
-    }
-    if (passwordInput() == false || pswinput.value.length === 0) {
-        isTrue = false;
-    }
-    if (rePasswordInput() == false || repswinput.value.length === 0) {
-        isTrue = false;
-    }
-    if (isTrue) {
-        form.submit();
-        alert("Form submitted successfully");
-    }else{
-        alert("Form not submitted");
+
+    let isNameValid = validateNameInput();
+    let isEmailValid = validateEmailInput();
+    let isPasswordValid = validatePasswordInput();
+    let isRePasswordValid = validateRePasswordInput();
+
+    if (isNameValid && isEmailValid && isPasswordValid && isRePasswordValid) {
+        Toastify({
+            text: "Form submitted",
+            style: {
+                background: "green",
+            },
+            duration: 1000,
+        }).showToast();
+    } else {
+        Toastify({
+            text: "Form not submitted",
+            style: {
+                background: "red",
+            },
+            duration: 1000,
+        }).showToast();
     }
 });
 

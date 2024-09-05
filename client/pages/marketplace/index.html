@@ -3,15 +3,21 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="../../assests/css/reset.css">
-        <link rel="stylesheet" href="../../assests/css/navbar.css">
-        <link rel="stylesheet" href="../../assests/css/footer.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="../../assests/css/reset.css" />
+        <link rel="stylesheet" href="../../assests/css/navbar.css" />
+        <link rel="stylesheet" href="../../assests/css/footer.css" />
         <link rel="stylesheet" href="./style.css" />
         <script defer src="../../assests/script/footer.js"></script>
         <script defer src="../../assests/script/navbar.js"></script>
         <script defer src="./script.js"></script>
-        <title>Login</title>
+        <title>Marketplace</title>
     </head>
     <body>
         <nav>
@@ -44,40 +50,36 @@
             </div>
         </nav>
 
-        <div id="middle">
-            <div class="middle-left">
-                <img  src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/image-placeholder-84@1x.png" alt="">
+        <section id="marketplace">
+            <div class="marketplace-top">
+                <h2>Browse Marketplace</h2>
+                <p>Browse through more than 50k NFTs on the NFT Marketplace.</p>
+                <label ><img src="../../assests/svg/search.svg" alt=""></label>
+                <input id="search" type="text" placeholder="Search your favourite NFTs">
             </div>
-            <div class="middle-right">
-                <div class="middle-right-content">
-                    <h2>Log in</h1>
-                    <h3>Welcome!</h2>
-                    <form >
-                        <!-- NAME INPUT DIV -->
-                        <div id="namediv" class="form-group">
-                            <label for="name"><img src="../../assests/svg/profile.svg" alt=""></label>
-                            <input type="text" id="name" name="name" placeholder="Username" required>
-                        </div>
-            
-                       
-                        <!-- PASSWORD INPUT DIV -->
-                        <div id="pswdiv" class="form-group">
-                            <label for="password"><img src="../../assests/svg/password.svg" alt=""></label>
-                            <input type="password" id="password" name="password" placeholder="Password" required>
-                            <i class="fa-solid fa-eye-slash"></i>
-                        </div>
-            
-                       
-            
-                        <!-- SUMBIT BUTTON -->
-                        <button>
-                            <a href="#">Login</a>
-                        </button>
-                    </form>
-                </div>
+        </section>
+        <section class="nft-top">
+            <div class="nft-top-left">
+                <h5>
+                    NFTs
+                </h5>
+                <span>302</span>
             </div>
-        </div>
-        
+            <div class="nft-top-right">
+                <h5>
+                    Collections
+                </h5>
+                <span>67</span>
+            </div>
+        </section>
+        <section id="nfts">
+            <div class="nft-bottom">
+            </div>
+            <button id="load-more">
+                Load More
+            </button>
+        </section>
+
         <footer>
             <div class="footer-top">
                 <div class="footer-left">
@@ -120,5 +122,6 @@
                     <span>Ⓒ NFT Market. Use this template freely.</span>
                 </div>
         </footer>
+
     </body>
 </html>

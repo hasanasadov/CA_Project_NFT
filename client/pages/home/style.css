@@ -496,6 +496,7 @@
 
 .creators {
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -882,7 +883,7 @@ i {
     background-image: url("https://s3-alpha-sig.figma.com/img/a6f4/3f93/50c73503d13e1fe1a0e3277804ef1192?Expires=1726444800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DEOtN8q40jqNdMJINIIJE8AeM0dq0WNooc9GgY658KadhijN92yj3uoFFX-ANz4bAYuLzPlBDD5gfMT4oAH39TT2yULdA9llDxUIg7YQuH4n04iFgYn8blFSddbzdFwVdfXjfJDZcQnqhtmB0tYCIzSdqixFJPuYPkiB02aF49REEUbKeFQXP9R3ohE4uP4EfCjI~~sOygNEelkX0u6PAncZnjVCLU~uANOqK5mv9jRMM5BRjxTfZQOWxpGlEUHvRVMEK-xe7SQEDBJgWeI1eZdMglPkMpB8CIb2j1nELJpeaWhghh0PduopY1ZtO5xJOs9cybvftGZ-Ug~CA8S7xw__");
     background-size: cover;
     display: flex;
-    padding: 360px 195px 60px 195px;
+    padding: 360px 195px 60px 195px !important;
     justify-content: space-between;
     align-items: flex-end;
     align-self: stretch;

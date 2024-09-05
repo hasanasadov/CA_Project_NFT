@@ -697,7 +697,6 @@ i {
     cursor: pointer;
 }
 
-
 /* NFT */
 
 #nfts {
@@ -718,14 +717,13 @@ i {
         img {
             width: 24px;
         }
-        
     }
     a:hover {
         background-color: #a259ff;
         border: 2px solid #2b2b2b;
         cursor: pointer;
     }
-    a#nft-bottom-a{
+    a#nft-bottom-a {
         display: none;
     }
 }
@@ -755,7 +753,6 @@ i {
         line-height: 160%; /* 35.2px */
         text-transform: capitalize;
     }
-    
 }
 .nft-bottom {
     display: flex;
@@ -821,26 +818,23 @@ i {
 }
 
 @media (max-width: 1280px) {
-
     .nft-bottom {
         flex-wrap: wrap;
     }
     .nft-item {
         width: 47% !important;
-        
     }
-
 }
 
 @media (max-width: 835px) {
     .nft-item {
         width: 100% !important;
     }
-    #nfts{
-        a{
+    #nfts {
+        a {
             display: none;
         }
-        a#nft-bottom-a{
+        a#nft-bottom-a {
             position: relative;
             display: flex !important;
             width: 100% !important;
@@ -894,14 +888,14 @@ i {
     align-self: stretch;
     position: relative;
 }
-#mashroom:after{
+#mashroom:after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(162, 89, 255, 0.00) 0%, #A259FF 100%);
+    background: linear-gradient(180deg, rgba(162, 89, 255, 0) 0%, #a259ff 100%);
     z-index: 0;
 }
 
@@ -1054,25 +1048,24 @@ i {
     line-height: 110%; /* 13.2px */
 }
 
-#mashroom{
-    a{
+#mashroom {
+    a {
         display: flex;
     }
-    a#mashroom-bottom-a{
+    a#mashroom-bottom-a {
         display: none;
     }
 }
 
 @media (max-width: 835px) {
     #mashroom {
-        padding: 200px 20px 60px 20px;
         flex-direction: column;
         gap: 40px;
         align-items: flex-start;
-        a{
+        a {
             display: none;
         }
-        a#mashroom-bottom-a{
+        a#mashroom-bottom-a {
             display: flex;
         }
     }
@@ -1081,13 +1074,295 @@ i {
     }
 }
 
-@media (max-width:768px) {
-    #mashroom{
-        a#mashroom-bottom-a{
+@media (max-width: 768px) {
+    #mashroom {
+        a#mashroom-bottom-a {
             width: 100%;
         }
     }
     .mashroom-right {
+        width: 100%;
+    }
+}
+
+/* END */
+
+#howitworks {
+    display: flex;
+    gap: 40px;
+    align-self: stretch;
+    flex-direction: column;
+}
+
+.howitworks-top {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-self: stretch;
+    width: 50%;
+    h3 {
+        color: var(--White, #fff);
+        /* H3 - Work Sans */
+        font-family: "Work Sans";
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%; /* 45.6px */
+        text-transform: capitalize;
+    }
+    p {
+        color: var(--White, #fff);
+        /* Body Text- Work Sans */
+        font-family: "Work Sans";
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%; /* 35.2px */
+        text-transform: capitalize;
+    }
+}
+
+.howitworks-bottom {
+    display: flex;
+    gap: 30px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.howitwork {
+    background-color: #3b3b3b;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    width: 31%;
+    img {
+        width: 100%;
+        height: 70%;
+        object-fit: cover;
+    }
+    .howitwork-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h5 {
+            color: #fff;
+            text-align: center;
+
+            /* H5 - Work Sans */
+            font-family: "Work Sans";
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 140%; /* 30.8px */
+            text-transform: capitalize;
+        }
+        p {
+            color: var(--White, #fff);
+            text-align: center;
+
+            /* Base(Body) - Work Sans */
+            font-family: "Work Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 22.4px */
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .howitwork {
+        width: 47% !important;
+    }
+}
+
+@media (max-width: 835px) {
+    .howitwork {
+        flex-direction: row;
+        height: fit-content;
+        width: 100% !important;
+        img {
+            width: 40%;
+            height: 40%;
+        }
+        .howitwork-bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 25px;
+            h5 {
+                text-align: left;
+            }
+            p {
+                text-align: left;
+            }
+        }
+    }
+}
+
+/* END */
+
+.join-wrapper {
+    border-radius: 20px;
+    background: #3b3b3b;
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    padding: 60px;
+}
+
+.join-left {
+    width: 50%;
+    img {
+        border-radius: 20px;
+        overflow: hidden;
+
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.join-right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 50%;
+    justify-content: center;
+    h3 {
+        color: #fff;
+        /* H3 - Work Sans */
+        font-family: "Work Sans";
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%; /* 45.6px */
+        text-transform: capitalize;
+    }
+    p {
+        color: var(--White, #fff);
+
+        /* Body Text- Work Sans */
+        font-family: "Work Sans";
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%; /* 35.2px */
+        text-transform: capitalize;
+    }
+}
+
+.join-right form {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    padding: 16px 0px 16px 20px;
+    align-items: center;
+    border-radius: 20px;
+    background: #fff;
+    button {
+        display: flex;
+        height: 60px;
+        padding: 0px 50px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        a {
+            margin-bottom: 0px !important;
+            color: #fff !important;
+        }
+    }
+    input {
+        padding: 0.5rem 0;
+        width: 50%;
+        border: none;
+        margin-bottom: 0;
+        line-height: 140%;
+        &:focus {
+            outline: none;
+        }
+    }
+    &::after {
+        bottom: -30px !important;
+        border: none !important;
+        left: 20px !important;
+    }
+    label {
+        position: absolute;
+        top: 31%;
+    }
+    label ~ input {
+        padding-left: 30px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .join-wrapper {
+        gap: 30px;
+    }
+    .join-right {
+        form {
+            background-color: transparent;
+            height: fit-content;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 0;
+            label {
+                z-index: 2;
+                top: 20%;
+                transform: translateY(-50%);
+                left: 18px;
+                height: 20px;
+                width: 20px;
+                position: absolute;
+                color: black;
+            }
+            input {
+                position: relative;
+                width: 100%;
+                display: flex;
+                height: 46px;
+                padding-left: 40px !important;
+                padding: 16px 70px;
+                align-items: center;
+                gap: 12px;
+                align-self: stretch;
+                border-radius: 20px;
+                border: 1px solid var(--caption-label-text, #858584);
+                background: var(--Text, #fff);
+            }
+            button {
+                width: 100% !important;
+                transform: translateY(0);
+                display: flex;
+                height: 46px;
+                padding: 16px 45px;
+                align-items: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 835px) {
+    .join-wrapper {
+        border-radius: 20px;
+        background: #2b2b2b;
+        flex-direction: column;
+        gap: 80px;
+        padding: 0;
+    }
+    .join-left {
+        width: 100%;
+    }
+    .join-right {
         width: 100%;
     }
 }

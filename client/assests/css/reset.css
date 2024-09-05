@@ -23,8 +23,8 @@ input:focus{
 }
 
 section {
-    padding: 80px 115px;
+    padding: 80px 115px !important;
     @media (max-width: 768px) {
-        padding: 40px;   
+        padding: 40px !important;   
     }
 }

@@ -22,7 +22,7 @@ function validateJoinEmailInput() {
 function joinEmaill() {
     joinEmail.addEventListener("keyup", validateJoinEmailInput);
 }
-joinEmaill()
+joinEmaill();
 
 joinForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -35,8 +35,7 @@ joinForm.addEventListener("submit", (e) => {
             backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
             className: "info",
         }).showToast();
-    }
-    else {
+    } else {
         Toastify({
             text: "Not subscribed",
             backgroundColor: "linear-gradient(to right, #ff416c, #ff4b2b)",
@@ -48,13 +47,6 @@ joinForm.addEventListener("submit", (e) => {
     joinEmail.parentElement.classList.remove("errorbadge");
     joinEmail.parentElement.classList.add("done8");
 });
-
-
-
-
-
-
-
 
 function createCreatorCard(creator) {
     const item = document.createElement("div");
@@ -77,26 +69,20 @@ function createCreatorCard(creator) {
     item.addEventListener("click", () => {
         window.location.href = `../artist/index.html?id=${creator.id}`;
     });
-
 }
 
 async function getCreators() {
     const response = await fetch("http://localhost:3000/api/creators");
     const creators = await response.json();
-    creators.forEach(creator => createCreatorCard(creator));
+    creators.forEach((creator) => createCreatorCard(creator));
 }
 
-
 getCreators();
-
-
-
 
 const nftBottom = document.querySelector(".nft-bottom");
 const loadMoreBtn = document.querySelector("#load-more");
 const searchInput = document.querySelector("#search");
-const nftCount= document.querySelector("#nft-count");
-
+const nftCount = document.querySelector("#nft-count");
 
 function fillNfts(nftsData) {
     nftsData.forEach((nft) => {
@@ -124,8 +110,6 @@ function fillNfts(nftsData) {
                 </div>
         `;
         nftBottom.appendChild(nftElement);
-        console.log(nftBottom);
-
     });
 }
 
@@ -140,8 +124,45 @@ async function getNfts(count = 3) {
         }),
     });
     const nftsData = await response.json();
-    console.log(nftsData);
     fillNfts(nftsData.nfts);
 }
 
 getNfts();
+
+
+//! Timer ---------------
+const hours_top = document.querySelector(".hours-top");
+const minutes_top = document.querySelector(".minutes-top");
+const seconds_top = document.querySelector(".seconds-top");
+
+let endTime = new Date().getTime() + 24 * 60 * 60 * 1000 - 1000;
+
+function updateTimer() {
+    let now = new Date().getTime();
+    let timeLeft = endTime - now;
+
+    let hours = Math.floor(
+        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+
+    hours_top.innerHTML = hours;
+    minutes_top.innerHTML = minutes;
+    seconds_top.innerHTML = seconds;
+
+
+    if (timeLeft < 0) {
+        document.getElementById("time").innerHTML = "EXPIRED";
+        clearInterval(timerInterval);
+    }
+}
+
+// Update the timer every second
+let timerInterval = setInterval(updateTimer, 1000);
+updateTimer();

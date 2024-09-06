@@ -38,9 +38,9 @@ function fillCreators(creator) {
     }
     creatorName.innerHTML = `${creator.name}`;
     profileImg.src = `../../../${creator.profileImgPath}`;
-    nftSold.innerHTML = `${creator.nftSold}`;
-    volume.innerHTML = `${creator.volume/1000}k`;
-    followers.innerHTML = `${creator.followers/1000}k`;
+    nftSold.innerHTML = `${creator.nftSold > 1000 ? creator.nftSold/1000 + `k` : creator.nftSold }`;
+    volume.innerHTML = `${creator.volume > 1000 ? creator.volume/1000 + `k` : creator.volume }`;
+    followers.innerHTML = `${creator.followers > 1000 ? creator.followers/1000 + `k` : creator.followers }`;
     creator_bio.innerHTML = `${creator.bio}`;
     created_nft_length.innerHTML = `${creator.nfts.length}`;
     chainIds.forEach((chainId) => {

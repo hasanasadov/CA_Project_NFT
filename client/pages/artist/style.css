@@ -1,3 +1,37 @@
+#artist-top {
+    height: 320px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    #profile-img {
+        position: absolute;
+        bottom: -60px;
+        z-index: 2;
+        display: flex;
+        width: 120px;
+        height: 120px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+    }
+
+    #bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    background: linear-gradient(
+        180deg,
+        rgba(151, 71, 255, 0) 21.88%,
+        #a259ff 95.31%
+    );
+}
+
 #creator-info {
     display: flex;
     gap: 30px;
@@ -91,7 +125,7 @@
         gap: 10px;
         padding: 10px 20px;
         border-radius: 20px;
-        color: #fff ;
+        color: #fff;
         text-align: center;
         font-family: "Work Sans";
         font-size: 16px;
@@ -99,7 +133,7 @@
         font-weight: 600;
         line-height: 140%; /* 22.4px */
         transition: all 0.3s ease;
-        &:hover{
+        &:hover {
             transition: all 0.3s ease;
             transform: scale(1.02);
         }
@@ -119,7 +153,6 @@
         border-radius: 20px;
         background: var(--Call-to-Action, #a259ff);
         border: 2px solid var(--Call-to-Action, #a259ff);
-        
     }
     a:last-child {
         display: flex;
@@ -131,7 +164,6 @@
         gap: 12px;
         border-radius: 20px;
         border: 2px solid var(--Call-to-Action, #a259ff);
-       
     }
 }
 
@@ -193,7 +225,7 @@
     display: flex;
     padding: 1rem;
     gap: 16px;
-    width: 49%;
+    width: 32%;
     justify-content: center;
     align-items: center;
     h5 {
@@ -316,6 +348,24 @@
 }
 
 @media (max-width: 835px) {
+    #profile-img{
+        left: 50%;
+        transform: translateX(-50%);
+        bottom:-20px !important;
+    }
+    .creator-top {
+        gap: 10px;
+    }
+    .creator-top-left,
+    .creator-top-middle,
+    .creator-top-right {
+        h5 {
+            font-size: 18px;
+        }
+        span {
+            display: none;
+        }
+    }
     .creator-item {
         width: 100% !important;
     }
@@ -331,6 +381,23 @@
     }
     .load-more {
         width: 100%;
+    }
+    .creator-info-right {
+        display: none;
+    }
+    .creator-info-left {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .creator-info-right.show {
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        a {
+            width: 100%;
+        }
     }
 }
 
@@ -364,4 +431,8 @@
             line-height: 140%; /* 22.4px */
         }
     }
+}
+
+.creator-info-right.show {
+    display: none;
 }

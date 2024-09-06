@@ -819,6 +819,7 @@ i {
     }
 }
 
+
 @media (max-width: 1280px) {
     .nft-bottom {
         flex-wrap: wrap;
@@ -840,6 +841,7 @@ i {
             position: relative;
             display: flex !important;
             width: 100% !important;
+            margin-top: 40px;
         }
     }
 }
@@ -1061,6 +1063,7 @@ i {
 
 @media (max-width: 835px) {
     #mashroom {
+        padding: 40px!important;
         flex-direction: column;
         gap: 40px;
         align-items: flex-start;

@@ -90,3 +90,58 @@ async function getCreators() {
 getCreators();
 
 
+
+
+const nftBottom = document.querySelector(".nft-bottom");
+const loadMoreBtn = document.querySelector("#load-more");
+const searchInput = document.querySelector("#search");
+const nftCount= document.querySelector("#nft-count");
+
+
+function fillNfts(nftsData) {
+    nftsData.forEach((nft) => {
+        const nftElement = document.createElement("div");
+        nftElement.classList.add("nft-item");
+        nftElement.innerHTML = `
+                <div class="nft-image">
+                    <img src="../../../${nft.imgPath}" alt="">
+                </div>
+                <div class="nft-image-bottom">
+                    <h5>${nft.name}</h5>
+                    <div class="nft-image-bottom__bottom">
+                        <img src="../../../${nft.creator.profileImgPath}" alt=""> ${nft.creator.name}
+                    </div>
+                    <div class="nft-price">
+                        <div class="price-left">
+                            <p>Price</p>
+                            <span>${nft.price.value} ${nft.price.currency}</span>
+                        </div>
+                        <div class="price-right">
+                            <p>Highest Bid</p>
+                            <span>${nft.highestBid.value} ${nft.highestBid.currency}</span>
+                        </div>
+                    </div>
+                </div>
+        `;
+        nftBottom.appendChild(nftElement);
+        console.log(nftBottom);
+
+    });
+}
+
+async function getNfts(count = 3) {
+    const response = await fetch(`http://localhost:3000/api/nfts`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            pageSize: count,
+        }),
+    });
+    const nftsData = await response.json();
+    console.log(nftsData);
+    fillNfts(nftsData.nfts);
+}
+
+getNfts();

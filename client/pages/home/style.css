@@ -21,10 +21,13 @@
     align-items: center;
     gap: 12px;
     border: 1px solid #a259ff;
+    transition: all 0.3s ease;
     &:hover {
         background-color: #2b2b2b;
         border-radius: 20px;
         border: #a259ff 1px solid;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
     img {
         width: 20px;
@@ -94,6 +97,12 @@
     flex-direction: column;
     align-items: center;
     flex: 1 0 0;
+    transition: all 0.3s ease;
+    &:hover{
+        transition: all 0.3s ease;
+        transform: scale(0.95);
+        cursor: pointer;
+    }
 }
 
 .image-top {
@@ -441,6 +450,7 @@
     flex-direction: column;
     gap: 40px;
     align-self: stretch;
+    transition: all 0.3s ease;
 }
 
 .creators-top {
@@ -449,6 +459,7 @@
     gap: 30px;
     align-self: stretch;
     position: relative;
+    transition: all 0.3s ease;
     h3 {
         color: var(--White, #fff);
         /* H3 - Work Sans */
@@ -488,6 +499,8 @@
         }
     }
     a:hover {
+        transition: all 0.3s ease;
+
         background-color: #a259ff;
         border: 2px solid #2b2b2b;
         cursor: pointer;
@@ -498,11 +511,12 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    justify-content: space-between;
 }
 
 .creator {
     cursor: pointer !important;
-    width: 22.99%;
+    width: 22.8%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -511,6 +525,7 @@
     position: relative;
     border-radius: 20px;
     background: #3b3b3b;
+    transition: all 0.3s ease;
     img {
         border-radius: 50%;
         width: 120px;
@@ -561,6 +576,10 @@
         align-items: center;
         top: 10px;
         left: 10px;
+    }
+    &:hover {
+        transition: all 0.3s ease;
+        transform: scale(0.95);
     }
 }
 
@@ -646,6 +665,7 @@
     &:hover {
         transition: all 0.3s ease;
         transform: scale(0.95);
+        cursor: pointer;
     }
     img {
         width: 100%;
@@ -716,14 +736,22 @@ i {
         gap: 12px;
         bottom: 0;
         right: 0;
+        transition: all 0.3s ease;
         img {
             width: 24px;
         }
+
     }
     a:hover {
         background-color: #a259ff;
         border: 2px solid #2b2b2b;
         cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover{
+            img{
+                filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+            }
+        }
     }
     a#nft-bottom-a {
         display: none;
@@ -755,15 +783,23 @@ i {
         line-height: 160%; /* 35.2px */
         text-transform: capitalize;
     }
+   
 }
 .nft-bottom {
     display: flex;
     gap: 30px;
     margin-top: 30px;
+    justify-content: space-between;
 }
 
 .nft-item {
     width: 33%;
+    transition: all 0.3s ease;
+    &:hover {
+        transition: all 0.3s ease;
+        transform: scale(0.95);
+        cursor: pointer;
+    }
 }
 .nft-image {
     width: 100%;

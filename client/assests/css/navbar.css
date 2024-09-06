@@ -22,6 +22,7 @@ nav {
     align-items: center;
     gap: 10px;
     a {
+        transition: all 0.5s ease;
         display: flex;
         height: 46px;
         padding: 0px 20px;
@@ -78,6 +79,8 @@ nav {
 .sidebar a:hover {
     background: #a259ff;
     border-radius: 20px;
+    transition: all 0.5s ease;
+    cursor: pointer;
 }
 
 .nav-right-burger {

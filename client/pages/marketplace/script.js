@@ -2,6 +2,9 @@ const nfts = document.querySelector("#nfts");
 const nftBottom = document.querySelector(".nft-bottom");
 const loadMoreBtn = document.querySelector("#load-more");
 const searchInput = document.querySelector("#search");
+const nftCount= document.querySelector("#nft-count");
+
+
 
 function fillNfts(nftsData) {
     nftsData.forEach((nft) => {
@@ -36,7 +39,6 @@ let skip = 0;
 let hasMore = true;
 async function getNfts(count = 0) {
     skip += count;
-
     const response = await fetch(`http://localhost:3000/api/nfts`, {
         method: "POST",
         headers: {
@@ -49,6 +51,7 @@ async function getNfts(count = 0) {
     });
     const nftsData = await response.json();
     hasMore = nftsData.hasMore;
+    nftCount.innerHTML = nftsData.totalCount;
     fillNfts(nftsData.nfts);
 }
 

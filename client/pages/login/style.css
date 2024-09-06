@@ -192,6 +192,7 @@ form {
 /*------------- ERROR MESSAGE 2 -------------*/
 .error2::after {
     content: "Password must have at least 1 Special Character" !important;
+    white-space: nowrap;
     position: absolute;
     bottom: -22px;
     left: 25px;
@@ -214,6 +215,8 @@ form {
 .error3::after {
     content: "";
     content: "Password must be at least 8 characters" !important;
+    white-space: nowrap;
+
     position: absolute;
     bottom: -22px;
     left: 25px;
@@ -233,6 +236,7 @@ form {
 /*------------- ERROR MESSAGE 4 -------------*/
 .error4::after {
     content: "Password must have at least 1 Uppercase letter" !important;
+    white-space: nowrap;
     position: absolute;
     bottom: -22px;
     left: 25px;
@@ -253,6 +257,7 @@ form {
 /*------------- ERROR MESSAGE 5 -------------*/
 .error5::after {
     content: "Password must have at least 1 Lowercase letter" !important;
+    white-space: nowrap;
     position: absolute;
     bottom: -22px;
     left: 25px;
@@ -273,6 +278,7 @@ form {
 /*------------- ERROR MESSAGE 6 -------------*/
 .error6::after {
     content: "Username At least have 3 letters" !important;
+    white-space: nowrap;
     position: absolute;
     bottom: -22px;
     left: 25px;

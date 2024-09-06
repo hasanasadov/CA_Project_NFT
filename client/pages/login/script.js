@@ -109,6 +109,8 @@ function passwordInput() {
     pswinput.addEventListener("keyup", () => validatePasswordInput());
 }
 
+//!--------- FORM SUBMISSION
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -145,18 +147,33 @@ async function sendInfos() {
         if (response.ok) {
             const data = await response.json();
             console.log(data);
+            Toastify({
+                text: `Welcome, ${nameinput.value}!`,
+                style: {
+                    background: "green",
+                },
+                duration: 3000,
+            }).showToast();
+            setTimeout(() => {
+                window.location.href = "../home/index.html";
+            }, 2000);
         } else {
             Toastify({
-                text: "User not found",
+                text: "Username or password is incorrect",
                 style: {
                     background: "red",
                 },
                 duration: 1000,
             }).showToast();
-            console.log("error");
         }
-    }
-    catch (error) {
+    } catch (error) {
+        Toastify({
+            text: error,
+            style: {
+                background: "red",
+            },
+            duration: 1000,
+        }).showToast();
         console.log(error);
     }
 }

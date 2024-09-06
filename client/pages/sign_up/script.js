@@ -195,25 +195,64 @@ form.addEventListener("submit", (e) => {
     let isRePasswordValid = validateRePasswordInput();
 
     if (isNameValid && isEmailValid && isPasswordValid && isRePasswordValid) {
-        Toastify({
-            text: "Form submitted",
-            style: {
-                background: "green",
-            },
-            duration: 1000,
-        }).showToast();
+        postData();
+        
+        
     } else {
         Toastify({
             text: "Form not submitted",
             style: {
                 background: "red",
             },
-            duration: 1000,
+            duration: 3000,
         }).showToast();
     }
 });
 
+async function postData(){
+    try{
+        let data = {
+            username: nameinput.value,
+            email: emailinput.value,
+            password: pswinput.value,
+        }
+        let response = await fetch("http://localhost:3000/api/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        let resData = await response.json();
+        //if username or email already exists
+        if(resData.error){
+            Toastify({
+                text: resData.error,
+                style: {
+                    background: "red",
+                },
+                duration: 3000,
+            }).showToast();
+        }
+        else{
+            Toastify({
+                text: `Welcome, ${nameinput.value}! Please login to continue.`,
 
+                style: {
+                    background: "green",
+                },
+                duration: 3000,
+            }).showToast();
+            setTimeout(() => {
+                window.location.href = "../login/index.html";
+            }, 2000);
+        }
+        return resData;
+    }
+    catch(err){
+        console.log(err);
+    }
+}
 
 
 

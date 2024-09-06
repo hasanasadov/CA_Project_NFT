@@ -73,6 +73,11 @@ function createCreatorCard(creator) {
             </div>
     `;
     creators.appendChild(item);
+
+    item.addEventListener("click", () => {
+        window.location.href = `../artist/index.html?id=${creator.id}`;
+    });
+
 }
 
 async function getCreators() {
@@ -80,6 +85,7 @@ async function getCreators() {
     const creators = await response.json();
     creators.forEach(creator => createCreatorCard(creator));
 }
+
 
 getCreators();
 

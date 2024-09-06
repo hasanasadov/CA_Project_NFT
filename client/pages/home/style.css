@@ -501,6 +501,7 @@
 }
 
 .creator {
+    cursor: pointer !important;
     width: 22.99%;
     display: flex;
     flex-direction: column;

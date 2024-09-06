@@ -49,7 +49,6 @@ async function getNfts(count = 0) {
     });
     const nftsData = await response.json();
     hasMore = nftsData.hasMore;
-    console.log(nftsData);
     fillNfts(nftsData.nfts);
 }
 

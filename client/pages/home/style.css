@@ -501,7 +501,7 @@
 }
 
 .creator {
-    width: 23%;
+    width: 22.99%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1300,7 +1300,9 @@ i {
     label ~ input {
         padding-left: 30px;
     }
+    
 }
+
 
 @media (max-width: 1080px) {
     .join-wrapper {

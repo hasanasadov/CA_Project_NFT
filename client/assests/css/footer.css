@@ -303,7 +303,7 @@ footer form {
     margin-bottom: 5px;
 }
 .done8::after {
-    content: "";
+    content: "" !important;
     position: absolute;
     bottom: -22px;
     left: 25px;

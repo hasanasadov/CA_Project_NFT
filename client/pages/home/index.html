@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="../../assests/css/navbar.css">
     <link rel="stylesheet" href="../../assests/css/footer.css">
     <link rel="stylesheet" href="./style.css">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        
     <script defer src="../../assests/script/navbar.js"></script>
     <script defer src="../../assests/script/footer.js"></script>
     <script defer src="./script.js"></script>
@@ -381,12 +383,12 @@
             <div class="join-right">
                 <h3>Join our weekly digest</h3>
                 <p>Get exclusive promotions & updates straight to your inbox.</p>
-                <form class="form-footer">
+                <form class="form-join">
                     <label for="email"><img src="../../assests/svg/mail.svg" alt=""></label>
 
-                    <input id="footer-email" type="email" name="email" placeholder="Email Your Email" required>
-                    <button>
-                        <a href="#">Subscribe</a>
+                    <input id="join-email" type="email" name="email" placeholder="Email Your Email" required>
+                    <button type="submit">
+                        Subscribe
                     </button>
                 </form>
             </div>
@@ -419,12 +421,11 @@
                 </div>
                 <a href="#">Get exclusive promotions & updates straight to your inbox.</a>
                 <div class="footer-right-bottom">
-                    <form class="form-footer">
+                    <form id="form-footer" class="form-footer">
                         <label for="email"><img src="../../assests/svg/mail.svg" alt=""></label>
-
                         <input id="footer-email" type="email" name="email" placeholder="Email Your Email" required>
-                        <button>
-                            <a href="#">Subscribe</a>
+                        <button type="submit">
+                            Subscribe
                         </button>
                     </form>
                 </div>

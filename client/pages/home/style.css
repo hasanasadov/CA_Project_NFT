@@ -1,3 +1,4 @@
+/*! -----------------------DISCOVER SECTION ---------------------------------*/
 #discover {
     display: flex;
     gap: 40px;
@@ -272,8 +273,10 @@
     }
 }
 
-/* TRENDS */
 
+
+
+/*! -----------------------TRENDING SECTION ---------------------------------*/
 #trending {
     display: flex;
     flex-direction: column;
@@ -443,8 +446,9 @@
     }
 }
 
-/* Creators */
 
+
+/*! -----------------------CREATORS SECTION ---------------------------------*/
 #creators {
     display: flex;
     flex-direction: column;
@@ -625,8 +629,9 @@
     }
 }
 
-/* END*/
 
+
+/*! --------------------------- CATEGORIES SECTION ---------------------------------*/
 #categories {
     display: flex;
     flex-direction: column;
@@ -704,7 +709,6 @@
     }
 }
 
-/* END */
 
 i {
     transition: all 0.5s;
@@ -719,8 +723,9 @@ i {
     cursor: pointer;
 }
 
-/* NFT */
 
+
+/*! ------------------------------ NFT SECTION ---------------------------------*/
 #nfts {
     a {
         position: absolute;
@@ -912,8 +917,10 @@ i {
     }
 }
 
-/* END */
 
+
+
+/*! -----------------------MASHROOM SECTION ---------------------------------*/
 #mashroom {
     display: flex;
     flex-direction: row;
@@ -1124,8 +1131,10 @@ i {
     }
 }
 
-/* END */
 
+
+
+/*! -----------------------HOW IT WORKS SECTION ---------------------------------*/
 #howitworks {
     display: flex;
     gap: 40px;
@@ -1263,7 +1272,9 @@ i {
     }
 }
 
-/* END */
+
+
+/*! ------------------------- JOIN SECTION ---------------------------------*/
 
 .join-wrapper {
     border-radius: 20px;
@@ -1425,3 +1436,5 @@ i {
         width: 100%;
     }
 }
+
+/*! -------------------------- END ---------------------------------*/

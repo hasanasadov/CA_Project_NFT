@@ -111,7 +111,7 @@ function passwordInput() {
 
 
 
-//--------- FORM SUBMISSION
+//! ---------- Form Submission ----------!//
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -132,7 +132,7 @@ form.addEventListener("submit", (e) => {
 });
 
 
-//--------- SEND INFOS TO SERVER ---------//
+//!--------- SEND INFOS TO SERVER ---------//
 async function sendInfos() {
     let username = nameinput.value;
     let password = pswinput.value;

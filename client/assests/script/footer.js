@@ -1,6 +1,8 @@
 const form2 = document.querySelector(".form-footer");
 const footer_email = form2.querySelector("input");
 
+
+//! -------------------- Footer Form validation -------------------- //
 function validateEmailInput() {
     let value = footer_email.value.trim();
     let isTrue = true;
@@ -20,8 +22,11 @@ function validateEmailInput() {
 function footeremail() {
     footer_email.addEventListener("keyup", validateEmailInput);
 }
+//! -------------------- Footer Form validation END -------------------- //
 
 
+
+//! -------------------- Footer Form Submit -------------------- //
 form2.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -33,6 +38,7 @@ form2.addEventListener("submit", (e) => {
             backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
             className: "info",
         }).showToast();
+        footer_email.value = "Subscribed_" + footer_email.value;
     }
     else {
         Toastify({
@@ -42,5 +48,7 @@ form2.addEventListener("submit", (e) => {
         }).showToast();
     }
 });
+//! -------------------- Footer Form Submit END -------------------- //
+
 
 footeremail()

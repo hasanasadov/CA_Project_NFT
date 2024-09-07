@@ -4,10 +4,9 @@ const pswinput = document.querySelector("#pswdiv input");
 const repswinput = document.querySelector("#repswdiv input");
 const form = document.querySelector("form");
 
-//!--------- FUNCTIONS ---------!//
 
-
-//!--------- SHOW PASSWORD
+//! -------------------- Sign up Form validation -------------------- //
+//--------- SHOW PASSWORD
 function showPassword() {
     let icon = document.querySelector("#pswdiv i");
     let input = document.querySelector("#pswdiv input");
@@ -23,8 +22,6 @@ function showPassword() {
         }
     });
 }
-
-//!--------- SHOW REPASSWORD
 function showRePassword() {
     let icon2 = document.querySelector("#repswdiv i");
     let input2 = document.querySelector("#repswdiv input");
@@ -41,7 +38,7 @@ function showRePassword() {
     });
 }
 
-//!--------- USERNAME INPUT VALIDATION
+//--------- USERNAME INPUT VALIDATION
 function validateNameInput() {
     let value = nameinput.value.trim();
     let isTrue = true;
@@ -59,13 +56,11 @@ function validateNameInput() {
     }
     return isTrue;
 }
-
 function nameInput() {
     nameinput.addEventListener("keyup", validateNameInput);
 }
 
-
-//!--------- EMAIL INPUT VALIDATION
+//--------- EMAIL INPUT VALIDATION
 function validateEmailInput() {
     let value = emailinput.value.trim();
     let isTrue = true;
@@ -83,13 +78,11 @@ function validateEmailInput() {
     }
     return isTrue;
 }
-
 function emailInput() {
     emailinput.addEventListener("keyup", validateEmailInput);
 }
 
-//!--------- PASSWORD INPUT VALIDATION
-
+//--------- PASSWORD INPUT VALIDATION
 function validatePasswordInput() {
     let value = pswinput.value.trim();
     let isTrue = true;
@@ -152,13 +145,11 @@ function validatePasswordInput() {
 
     return isTrue;
 }
-
 function passwordInput() {
     pswinput.addEventListener("keyup", validatePasswordInput);
 }
 
-//!--------- RE-PASSWORD INPUT VALIDATION
-
+//--------- RE-PASSWORD INPUT VALIDATION
 function validateRePasswordInput() {
     let value = pswinput.value.trim();
     let psw = repswinput.value.trim();
@@ -179,10 +170,11 @@ function validateRePasswordInput() {
     }
     return isTrue;
 }
-
 function rePasswordInput() {
     repswinput.addEventListener("keyup", validateRePasswordInput);
 }
+//! -------------------- Sign up Form validation END -------------------- //
+
 
 
 //!--------- FORM SUBMISSION ----------!//
@@ -208,7 +200,11 @@ form.addEventListener("submit", (e) => {
         }).showToast();
     }
 });
+//!--------- FORM SUBMISSION END ----------//
 
+
+
+//! ---------- POST DATA ----------!//
 async function postData(){
     try{
         let data = {
@@ -253,6 +249,7 @@ async function postData(){
         console.log(err);
     }
 }
+//! ---------- POST DATA END ----------!//
 
 
 

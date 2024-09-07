@@ -1,25 +1,5 @@
-
-
-
-
-async function getCreatorInfo() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const creatorId = urlParams.get("id");
-    try {
-        const response = await fetch(`http://localhost:3000/api/creators/${creatorId}`);
-        const creator = await response.json();
-        return creator;
-    } catch (error) {
-    }
-}
-
-getCreatorInfo();
-
-
-
 const nfts = document.querySelector("#creators");
 const creatorBottom = document.querySelector(".creator-bottom");
-let creator = getCreatorInfo();
 const profileImg = document.querySelector("#profile-img");
 const creatorName = document.querySelector("#creator-name");
 const nftSold = document.querySelector("#nft-sold");
@@ -28,6 +8,10 @@ const followers = document.querySelector("#followers");
 const creator_bio = document.querySelector("#creator-bio");
 const chainIds = document.querySelectorAll("#chainId");
 const created_nft_length = document.querySelector("#created-nft-length");
+
+
+
+//! --------------------------------- Fill Creators --------------------------------- //
 function fillCreators(creator) {
     if (creator.nfts.length === 0) {
         nfts.innerHTML = `
@@ -36,6 +20,7 @@ function fillCreators(creator) {
             </div>
         `;
     }
+    //! --------- Fill Creator Info ----------------
     creatorName.innerHTML = `${creator.name}`;
     profileImg.src = `../../../${creator.profileImgPath}`;
     nftSold.innerHTML = `${creator.nftSold > 1000 ? creator.nftSold/1000 + `k` : creator.nftSold }`;
@@ -43,6 +28,10 @@ function fillCreators(creator) {
     followers.innerHTML = `${creator.followers > 1000 ? creator.followers/1000 + `k` : creator.followers }`;
     creator_bio.innerHTML = `${creator.bio}`;
     created_nft_length.innerHTML = `${creator.nfts.length}`;
+    // --------- Fill Creator Info END ----------------
+
+
+    // --------- Copy ChainId ----------------
     chainIds.forEach((chainId) => {
         chainId.innerHTML = `<img src="../../assests/svg/copy.svg" alt="">${creator.chainId}`;
         if (creator.chainId.length > 10) {
@@ -57,7 +46,11 @@ function fillCreators(creator) {
         }
         );
     });
+    // --------- Copy ChainId END ----------------
     
+
+
+    //! --------- Fill NFTS   ----------------
     creator.nfts.forEach((data) => {
         const creatorElement = document.createElement("div");
         creatorElement.classList.add("creator-item");
@@ -84,8 +77,29 @@ function fillCreators(creator) {
         `;
         creatorBottom.appendChild(creatorElement);
     });
+    // --------- Fill NFTS END ----------------
 }
+//! --------------------------------- Fill Creators END --------------------------------- //
 
+
+
+//! --------------------------------- Get Creator Info --------------------------------- //
+async function getCreatorInfo() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const creatorId = urlParams.get("id");
+    try {
+        const response = await fetch(`http://localhost:3000/api/creators/${creatorId}`);
+        const creator = await response.json();
+        return creator;
+    } catch (error) {
+    }
+}
+//! --------------------------------- Get Creator Info END --------------------------------- //
+
+
+
+//! Initialize Creator Info
+let creator = getCreatorInfo();
 creator.then((data) => {
     fillCreators(data);
 });

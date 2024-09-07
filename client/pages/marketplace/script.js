@@ -6,6 +6,7 @@ const nftCount= document.querySelector("#nft-count");
 
 
 
+// --------- Fill NFTS   ----------------
 function fillNfts(nftsData) {
     nftsData.forEach((nft) => {
         const nftElement = document.createElement("div");
@@ -34,7 +35,11 @@ function fillNfts(nftsData) {
         nftBottom.appendChild(nftElement);
     });
 }
+// --------- Fill NFTS END ----------------
 
+
+
+// --------- GET NFTS by skip ----------------
 let skip = 0;
 let hasMore = true;
 async function getNfts(count = 0) {
@@ -54,7 +59,11 @@ async function getNfts(count = 0) {
     nftCount.innerHTML = nftsData.totalCount;
     fillNfts(nftsData.nfts);
 }
+// --------- GET NFTS by skip END ----------------
 
+
+
+// --------- Load More Button ----------------
 loadMoreBtn.addEventListener("click", () => {
     getNfts(3);
     if (!hasMore) {
@@ -68,7 +77,11 @@ loadMoreBtn.addEventListener("click", () => {
         return;
     }
 });
+// --------- Load More Button END ----------------
 
+
+
+// --------- Search NFTS ----------------
 searchInput.addEventListener("keyup", async (e) => {
     const response = await fetch(`http://localhost:3000/api/nfts`, {
         method: "POST",
@@ -85,5 +98,7 @@ searchInput.addEventListener("keyup", async (e) => {
     fillNfts(nftsData.nfts);
     loadMoreBtn.style.display = "none";
 });
+// --------- Search NFTS END ----------------
+
 
 getNfts();

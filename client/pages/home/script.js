@@ -1,5 +1,4 @@
-const creators = document.querySelector(".creators");
-
+// --------- Join Form Validation ------------
 const joinForm = document.querySelector(".form-join");
 const joinEmail = joinForm.querySelector("#join-email");
 
@@ -47,7 +46,13 @@ joinForm.addEventListener("submit", (e) => {
     joinEmail.parentElement.classList.remove("errorbadge");
     joinEmail.parentElement.classList.add("done8");
 });
+// --------- Join Form Validation END ------------
 
+
+
+
+// --------- GET CREATORS ------------
+const creators = document.querySelector(".creators");
 function createCreatorCard(creator) {
     const item = document.createElement("div");
     item.classList.add("creator");
@@ -78,7 +83,12 @@ async function getCreators() {
 }
 
 getCreators();
+// --------- GET CREATORS END------------
 
+
+
+
+// --------- GET 3 NFTS ----------------
 const nftBottom = document.querySelector(".nft-bottom");
 const loadMoreBtn = document.querySelector("#load-more");
 const searchInput = document.querySelector("#search");
@@ -126,24 +136,22 @@ async function getNfts(count = 3) {
     const nftsData = await response.json();
     fillNfts(nftsData.nfts);
 }
-
 getNfts();
+// --------- GET 3 NFTS END ----------------
 
 
-//! Timer ---------------
+
+
+//! --------- Mashroom Timer ------------
 const hours_top = document.querySelector(".hours-top");
 const minutes_top = document.querySelector(".minutes-top");
 const seconds_top = document.querySelector(".seconds-top");
-
 let endTime = new Date().getTime() + 24 * 60 * 60 * 1000 - 1000;
-
 function updateTimer() {
     let now = new Date().getTime();
     let timeLeft = endTime - now;
 
-    let hours = Math.floor(
-        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
+    let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
@@ -151,11 +159,9 @@ function updateTimer() {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
-
     hours_top.innerHTML = hours;
     minutes_top.innerHTML = minutes;
     seconds_top.innerHTML = seconds;
-
 
     if (timeLeft < 0) {
         document.getElementById("time").innerHTML = "EXPIRED";
@@ -163,6 +169,6 @@ function updateTimer() {
     }
 }
 
-// Update the timer every second
 let timerInterval = setInterval(updateTimer, 1000);
 updateTimer();
+// --------- Mashroom Timer END ------------

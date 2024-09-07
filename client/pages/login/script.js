@@ -1,10 +1,8 @@
+// ------------------- Login Form Validation -----------------//
 const nameinput = document.querySelector("#namediv input");
 const pswinput = document.querySelector("#pswdiv input");
 const form = document.querySelector("form");
 
-//!--------- FUNCTIONS ---------!//
-
-//!--------- SHOW PASSWORD
 function showPassword() {
     let icon = document.querySelector("#pswdiv i");
     let input = document.querySelector("#pswdiv input");
@@ -21,7 +19,6 @@ function showPassword() {
     });
 }
 
-//!--------- USERNAME INPUT VALIDATION
 function validateNameInput() {
     let value = nameinput.value.trim();
     let isTrue = true;
@@ -105,12 +102,16 @@ function validatePasswordInput() {
 
     return isTrue;
 }
+
 function passwordInput() {
     pswinput.addEventListener("keyup", () => validatePasswordInput());
 }
+// -------------- Login Form Validation END -------------- //
 
-//!--------- FORM SUBMISSION
 
+
+
+//--------- FORM SUBMISSION
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -130,6 +131,8 @@ form.addEventListener("submit", (e) => {
     }
 });
 
+
+//--------- SEND INFOS TO SERVER ---------//
 async function sendInfos() {
     let username = nameinput.value;
     let password = pswinput.value;
@@ -177,9 +180,10 @@ async function sendInfos() {
         console.log(error);
     }
 }
+//--------- SEND INFOS TO SERVER END ---------//
+
 
 //! ---------- Initialization ----------!//
 nameInput();
-
 passwordInput();
 showPassword();

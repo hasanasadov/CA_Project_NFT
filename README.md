@@ -5,9 +5,9 @@ https://hasanasadov.github.io/Code_Academy_Project_NFT/client/pages/home/index.h
 
 
 # For start server ,after cloning repository, in Terminal:
-    "cd server",
-    "npm i",
-    "npm run start"
+    cd server
+    npm i
+    npm run start
 # Then GoTo "Deploy link Again" or simply, GoTo "..client/pages/home/index.html" and run.
 
 

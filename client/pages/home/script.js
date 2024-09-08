@@ -85,6 +85,12 @@ async function getCreators() {
         }, 3000);
     }
     catch(err){
+        Toastify({
+            text: "Error fetching creators",
+            backgroundColor: "linear-gradient(to right, #ff416c, #ff4b2b)",
+            className: "info",
+        }).showToast();
+        
         console.log(err);
         return [];
     }
@@ -142,9 +148,17 @@ async function getNfts(count = 3) {
             }),
         });
         const nftsData = await response.json();
-        fillNfts(nftsData.nfts);
+        setTimeout(() => {
+            nftBottom.innerHTML = "";
+            fillNfts(nftsData.nfts);
+        }, 3000);
     }
     catch(err){
+        Toastify({
+            text: "Error fetching NFTs",
+            backgroundColor: "linear-gradient(to right, #ff416c, #ff4b2b)",
+            className: "info",
+        }).showToast();
         console.log(err);
         return [];
     }

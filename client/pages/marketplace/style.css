@@ -162,22 +162,21 @@
     }
 }
 
-.nft-top-left {
-    &::after {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 3px;
-        background: #858584;
-        bottom: 0px;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-    }
+.selected::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: #858584;
+    bottom: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
-
-.nft-top-right {
+.not-selected{
     opacity: 0.5;
 }
+
+
 
 
 /*! -------------- NFT BOTTOM -------------- */
@@ -185,11 +184,42 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    justify-content: space-between;
 }
 
-.nft-item {
+.nft-item{
+    position: relative;
+    #heart{
+        position: absolute;
+        z-index: 9999;
+        background-color: transparent;
+        border: none;
+        top: 15px;
+        right: 15px;
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.nft-item,.skeleton {
     width: 31.5%;
     margin-bottom: 20px;
+}
+.skeleton {
+    height: 75vh;
+    border-radius: 20px;
+    animation: skeleton 1s infinite;
+}
+@keyframes skeleton {
+    0% {
+        background-color: #2b2b2b;
+    }
+    50% {
+        background-color: #3b3b3b;
+    }
+    100% {
+        background-color: #2b2b2b;
+    }
 }
 
 .nft-image {
@@ -308,13 +338,13 @@
     .nft-bottom {
         flex-wrap: wrap;
     }
-    .nft-item {
+    .nft-item,.skeleton {
         width: 47.5% !important;
     }
 }
 
 @media (max-width: 835px) {
-    .nft-item {
+    .nft-item,.skeleton {
         width: 100% !important;
     }
     #nfts {

@@ -92,6 +92,7 @@ async function getCreatorInfo() {
         const creator = await response.json();
         return creator;
     } catch (error) {
+        return [];
     }
 }
 //! --------------------------------- Get Creator Info END --------------------------------- //
@@ -102,4 +103,13 @@ async function getCreatorInfo() {
 let creator = getCreatorInfo();
 creator.then((data) => {
     fillCreators(data);
+}).catch((error) => {
+    console.log(error);
+    Toastify({
+        text: error,
+        style: {
+            background: "red",
+        },
+        duration: 3000,
+    }).showToast();
 });

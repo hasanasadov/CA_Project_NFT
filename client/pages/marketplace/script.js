@@ -2,16 +2,17 @@ const nfts = document.querySelector("#nfts");
 const nftBottom = document.querySelector(".nft-bottom");
 const loadMoreBtn = document.querySelector("#load-more");
 const searchInput = document.querySelector("#search");
-const nftCount= document.querySelector("#nft-count");
+const nftCount = document.querySelector("#nft-count");
+const allNfts_btn = document.querySelector("#allNfts-btn");
+const favoriteBtn = document.querySelector("#favorite-btn");
 
-
-
-// --------- Fill NFTS   ----------------
+/*! -------------------------- FILL NFTS -------------------------- */
 function fillNfts(nftsData) {
     nftsData.forEach((nft) => {
         const nftElement = document.createElement("div");
         nftElement.classList.add("nft-item");
         nftElement.innerHTML = `
+                <button id="heart"><img src="../../assests/svg/heart.svg" alt="${nft.name}"></button>
                 <div class="nft-image">
                     <img src="../../../${nft.imgPath}" alt="">
                 </div>
@@ -35,35 +36,109 @@ function fillNfts(nftsData) {
         nftBottom.appendChild(nftElement);
     });
 }
-// --------- Fill NFTS END ----------------
+let likedDatas = new Array();
+function likedNFTS() {
+    let heartItems = document.querySelectorAll("#heart");
+    heartItems.forEach((heartItem) => {
+        heartItem.addEventListener("click", (e) => {
+            if (e.target.src.includes("heart-fill")) {
+                e.target.src = "../../assests/svg/heart.svg";
+                return;
+            }
+            e.target.src = "../../assests/svg/heart-fill.svg";
+            likedDatas.push(e.target.alt);
+            likedDatas = likedDatas.filter((item, index) => likedDatas.indexOf(item) === index);
+            console.log(likedDatas);
+            favoriteBtn.querySelector("span").innerHTML = likedDatas.length;
+        });
+    });
 
+}
+favoriteBtn.addEventListener("click",() => {
+    favoriteBtn.classList.add("selected");
+    favoriteBtn.classList.remove("not-selected");
+    allNfts_btn.classList.remove("selected");
+    allNfts_btn.classList.add("not-selected");
+    nftBottom.innerHTML = "";
+    loadMoreBtn.style.display = "none";
+    likedDatas.forEach(async(likedData) => {
+        try {
+            const response = await fetch(`http://localhost:3000/api/nfts`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    pageSize: 18,
+                    searchStr: likedData,
+                }),
+            });
+            let data = await response.json();
+            console.log(data);
+            fillNfts(data.nfts);  
+        } catch (err) {
+            console.log(err);
+            Toastify({
+                text: err,
+                style: {
+                    background: "red",
+                },
+                duration: 3000,
+            }).showToast();
+        }
+    });
+    likedNFTS();
 
+});
 
-// --------- GET NFTS by skip ----------------
+allNfts_btn.addEventListener("click", () => {
+    nftBottom.innerHTML = "";
+    allNfts_btn.classList.add("selected");
+    allNfts_btn.classList.remove("not-selected");
+    favoriteBtn.classList.remove("selected");
+    favoriteBtn.classList.add("not-selected");
+    getNfts();
+    loadMoreBtn.style.display = "block";
+});
+
+/*! -------------------------- FILL NFTS END -------------------------- */
+
+/*! -------------------------- GET NFTS by skip -------------------------- */
 let skip = 0;
 let hasMore = true;
 async function getNfts(count = 0) {
     skip += count;
-    const response = await fetch(`http://localhost:3000/api/nfts`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            pageSize: 3,
-            skip: skip,
-        }),
-    });
-    const nftsData = await response.json();
-    hasMore = nftsData.hasMore;
-    nftCount.innerHTML = nftsData.totalCount;
-    fillNfts(nftsData.nfts);
+    try {
+        const response = await fetch(`http://localhost:3000/api/nfts`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pageSize: 3,
+                skip: skip,
+            }),
+        });
+        const nftsData = await response.json();
+        hasMore = nftsData.hasMore;
+        nftCount.innerHTML = nftsData.totalCount;
+        fillNfts(nftsData.nfts);
+        likedNFTS();
+    } catch (err) {
+        console.log(err);
+        Toastify({
+            text: err,
+            style: {
+                background: "red",
+            },
+            duration: 3000,
+        }).showToast();
+    }
 }
-// --------- GET NFTS by skip END ----------------
 
+/*! -------------------------- GET NFTS by skip END -------------------------- */
 
-
-// --------- Load More Button ----------------
+/*! -------------------------- Load More Button -------------------------- */
 loadMoreBtn.addEventListener("click", () => {
     getNfts(3);
     if (!hasMore) {
@@ -77,28 +152,42 @@ loadMoreBtn.addEventListener("click", () => {
         return;
     }
 });
-// --------- Load More Button END ----------------
+/*! -------------------------- Load More Button END -------------------------- */
 
-
-
-// --------- Search NFTS ----------------
+/*! -------------------------- Search NFTS -------------------------- */
 searchInput.addEventListener("keyup", async (e) => {
-    const response = await fetch(`http://localhost:3000/api/nfts`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            "pageSize": "18",
-            "searchStr": e.target.value,
-        }),
-    });
-    const nftsData = await response.json();
-    nftBottom.innerHTML = "";
-    fillNfts(nftsData.nfts);
-    loadMoreBtn.style.display = "none";
+    try {
+        const response = await fetch(`http://localhost:3000/api/nfts`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pageSize: "18",
+                searchStr: e.target.value,
+            }),
+        });
+        const nftsData = await response.json();
+        nftBottom.innerHTML = "";
+        fillNfts(nftsData.nfts);
+        loadMoreBtn.style.display = "none";
+    } catch (err) {
+        console.log(err);
+        Toastify({
+            text: err,
+            style: {
+                background: "red",
+            },
+            duration: 3000,
+        }).showToast();
+    }
 });
-// --------- Search NFTS END ----------------
+/*! -------------------------- Search NFTS END -------------------------- */
 
 
-getNfts();
+setTimeout(() => {
+    nftBottom.innerHTML = "";
+}, 1000);
+setTimeout(() => {
+    getNfts();
+}, 1000);

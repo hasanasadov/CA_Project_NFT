@@ -517,8 +517,24 @@
     gap: 30px;
     justify-content: space-between;
 }
+.skeleton {
+    height: 35vh;
+    border-radius: 20px;
+    animation: skeleton 1s infinite;
+}
+@keyframes skeleton {
+    0% {
+        background-color: #2b2b2b;
+    }
+    50% {
+        background-color: #3b3b3b;
+    }
+    100% {
+        background-color: #2b2b2b;
+    }
+}
 
-.creator {
+.creator,.skeleton {
     cursor: pointer !important;
     width: 22.8%;
     display: flex;
@@ -599,7 +615,7 @@
     .creators {
         flex-wrap: wrap;
     }
-    .creator {
+    .creator,.skeleton {
         width: 47%;
         text-align: left !important;
         flex-direction: row;
@@ -621,11 +637,17 @@
             }
         }
     }
+    .skeleton{
+        height: 15vh;
+    }
 }
 
 @media (max-width: 1100px) {
-    .creator {
+    .creator,.skeleton {
         width: 100%;
+    }
+    .skeleton{
+        height: 20vh;
     }
 }
 

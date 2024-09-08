@@ -1,7 +1,7 @@
-// --------- Join Form Validation ------------
 const joinForm = document.querySelector(".form-join");
 const joinEmail = joinForm.querySelector("#join-email");
 
+/*! ------------------------- JOIN Form Validation ------------------------- */
 function validateJoinEmailInput() {
     let value = joinEmail.value.trim();
     let isTrue = true;
@@ -46,13 +46,12 @@ joinForm.addEventListener("submit", (e) => {
     joinEmail.parentElement.classList.remove("errorbadge");
     joinEmail.parentElement.classList.add("done8");
 });
-// --------- Join Form Validation END ------------
+/*! ------------------------- JOIN Form Validation END ------------------------- */
 
 
 
-
-// --------- GET CREATORS ------------
-const creators = document.querySelector(".creators");
+/*! ------------------------- GET CREATOR ------------------------- */
+const creatorsElement = document.querySelector(".creators");
 function createCreatorCard(creator) {
     const item = document.createElement("div");
     item.classList.add("creator");
@@ -69,7 +68,7 @@ function createCreatorCard(creator) {
                 </div>
             </div>
     `;
-    creators.appendChild(item);
+    creatorsElement.appendChild(item);
 
     item.addEventListener("click", () => {
         window.location.href = `../artist/index.html?id=${creator.id}`;
@@ -77,18 +76,26 @@ function createCreatorCard(creator) {
 }
 
 async function getCreators() {
-    const response = await fetch("http://localhost:3000/api/creators");
-    const creators = await response.json();
-    creators.forEach((creator) => createCreatorCard(creator));
+    try{
+        const response = await fetch("http://localhost:3000/api/creators");
+        const creators = await response.json();
+        setTimeout(() => {
+            creatorsElement.innerHTML = "";
+            creators.forEach((creator) => createCreatorCard(creator));
+        }, 3000);
+    }
+    catch(err){
+        console.log(err);
+        return [];
+    }
 }
 
 getCreators();
-// --------- GET CREATORS END------------
+/*! ------------------------- GET CREATOR END ------------------------- */
 
 
 
-
-// --------- GET 3 NFTS ----------------
+/*! ------------------------- GET 3 NFTS ------------------------- */
 const nftBottom = document.querySelector(".nft-bottom");
 const loadMoreBtn = document.querySelector("#load-more");
 const searchInput = document.querySelector("#search");
@@ -124,25 +131,30 @@ function fillNfts(nftsData) {
 }
 
 async function getNfts(count = 3) {
-    const response = await fetch(`http://localhost:3000/api/nfts`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            pageSize: count,
-        }),
-    });
-    const nftsData = await response.json();
-    fillNfts(nftsData.nfts);
+    try{
+        const response = await fetch(`http://localhost:3000/api/nfts`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pageSize: count,
+            }),
+        });
+        const nftsData = await response.json();
+        fillNfts(nftsData.nfts);
+    }
+    catch(err){
+        console.log(err);
+        return [];
+    }
 }
 getNfts();
-// --------- GET 3 NFTS END ----------------
+/*! ------------------------- GET 3 NFTS END ------------------------- */
 
 
 
-
-//! --------- Mashroom Timer ------------
+/*! ------------------------- MASHROOM TIMER ------------------------- */
 const hours_top = document.querySelector(".hours-top");
 const minutes_top = document.querySelector(".minutes-top");
 const seconds_top = document.querySelector(".seconds-top");
@@ -171,4 +183,7 @@ function updateTimer() {
 
 let timerInterval = setInterval(updateTimer, 1000);
 updateTimer();
-// --------- Mashroom Timer END ------------
+/*! ------------------------- MASHROOM TIMER END ------------------------- */
+
+
+

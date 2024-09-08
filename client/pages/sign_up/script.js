@@ -247,6 +247,13 @@ async function postData(){
     }
     catch(err){
         console.log(err);
+        Toastify({
+            text: err,
+            style: {
+                background: "red",
+            },
+            duration: 3000,
+        }).showToast();
     }
 }
 //! ---------- POST DATA END ----------!//

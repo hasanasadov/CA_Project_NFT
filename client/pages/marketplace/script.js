@@ -39,12 +39,13 @@ function likedNFTS(inFavPage = false) {
     let heartItems = document.querySelectorAll("#heart");
     heartItems.forEach((heartItem) => {
         heartItem.addEventListener("click", (e) => {
-            if (inFavPage) {
+            if (inFavPage && e.target.src.includes("heart-fill")) {
                 let likedNftInUI = e.target.parentElement.parentElement;
                 likedNftInUI.remove();
                 likedDatas = likedDatas.filter((item) => item !== e.target.alt);
                 e.target.src = "../../assests/svg/heart.svg";
                 favoriteBtn.querySelector("span").innerHTML = likedDatas.length;
+                console.log("Girdi");
                 Toastify({
                     text: `${e.target.alt} Removed From Favorites.`,
                     style: {
@@ -68,7 +69,7 @@ function likedNFTS(inFavPage = false) {
                     },
                     duration: 3000,
                 }).showToast();
-            } else {
+            } if(!e.target.src.includes("heart-fill") && !inFavPage) {
                 e.target.src = "../../assests/svg/heart-fill.svg";
                 likedDatas.push(e.target.alt);
                 likedDatas = likedDatas.filter(
@@ -84,7 +85,6 @@ function likedNFTS(inFavPage = false) {
                 }).showToast();
             }
         });
-        return;
     });
 }
 
@@ -173,11 +173,8 @@ async function getNfts(count = 0) {
         const nftsData = await response.json();
         hasMore = nftsData.hasMore;
         nftCount.innerHTML = nftsData.totalCount;
-        //if nftsdata's nft's name is having in liked datas's liked data element
-        //then fill nfts with heart fill path
-
         fillNfts(nftsData.nfts);
-        likedNFTS();
+        likedNFTS(inFavPage = false);
     } catch (err) {
         console.log(err);
         Toastify({

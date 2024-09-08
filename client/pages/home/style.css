@@ -900,13 +900,13 @@ i {
     .nft-bottom {
         flex-wrap: wrap;
     }
-    .nft-item {
+    .nft-item,.skeleton-nft {
         width: 47% !important;
     }
 }
 
 @media (max-width: 835px) {
-    .nft-item {
+    .nft-item,.skeleton-nft {
         width: 100% !important;
     }
     #nfts {
@@ -1281,6 +1281,9 @@ i {
         img {
             width: 100px;
             height: 100px;
+        }
+        .howitworks-top{
+            width: 100%;
         }
         .howitwork-bottom {
             display: flex;

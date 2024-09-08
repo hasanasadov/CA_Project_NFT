@@ -132,6 +132,7 @@
     width: 49%;
     justify-content: center;
     align-items: center;
+    transition: all 2s ease;
     h5 {
         color: var(--White, #fff);
         text-align: center;
@@ -163,6 +164,7 @@
 }
 
 .selected::after{
+    transition: all 2s ease;
     position: absolute;
     content: "";
     width: 100%;
@@ -171,11 +173,20 @@
     bottom: 0px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    animation: fromBottom 0.5s ease;
 }
 .not-selected{
-    opacity: 0.5;
+    transition: all 0.3s ease;
+    opacity: 0.3;
 }
-
+@keyframes fromBottom {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 
 
 

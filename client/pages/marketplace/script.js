@@ -173,10 +173,7 @@ async function getNfts(count = 0) {
         const nftsData = await response.json();
         hasMore = nftsData.hasMore;
         nftCount.innerHTML = nftsData.totalCount;
-        setTimeout(() => {
-            nftBottom.innerHTML = "";
-            fillNfts(nftsData.nfts);
-        }, 2000);
+        fillNfts(nftsData.nfts);
         likedNFTS(inFavPage = false);
     } catch (err) {
         console.log(err);
@@ -237,6 +234,10 @@ searchInput.addEventListener("keyup", async (e) => {
 
 /*! -------------------------- INIT -------------------------- */
 
-    
-getNfts();
+setTimeout(() => {
+    getNfts();
+}, 1000);
 
+setTimeout(() => {
+    nftBottom.innerHTML = "";
+}, 1000);

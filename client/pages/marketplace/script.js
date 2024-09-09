@@ -239,6 +239,10 @@ searchInput.addEventListener("keyup", async (e) => {
 
 
 
+setTimeout(() => {
+    getNfts();
+}, 1000);
 
-nftBottom.innerHTML = "";
-getNfts();
+setTimeout(() => {
+    nftBottom.innerHTML = "";
+}, 1000);

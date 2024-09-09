@@ -69,6 +69,7 @@ function likedNFTS(inFavPage = false) {
                     },
                     duration: 3000,
                 }).showToast();
+                return;
             } if(!e.target.src.includes("heart-fill") && !inFavPage) {
                 e.target.src = "../../assests/svg/heart-fill.svg";
                 likedDatas.push(e.target.alt);
@@ -83,7 +84,9 @@ function likedNFTS(inFavPage = false) {
                     },
                     duration: 3000,
                 }).showToast();
+                return;
             }
+            
         });
     });
 }
@@ -234,10 +237,8 @@ searchInput.addEventListener("keyup", async (e) => {
 
 /*! -------------------------- INIT -------------------------- */
 
-setTimeout(() => {
-    getNfts();
-}, 1000);
 
-setTimeout(() => {
-    nftBottom.innerHTML = "";
-}, 1000);
+
+
+nftBottom.innerHTML = "";
+getNfts();

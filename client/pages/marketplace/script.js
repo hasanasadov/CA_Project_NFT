@@ -45,49 +45,51 @@ function likedNFTS(inFavPage = false) {
                 likedDatas = likedDatas.filter((item) => item !== e.target.alt);
                 e.target.src = "../../assests/svg/heart.svg";
                 favoriteBtn.querySelector("span").innerHTML = likedDatas.length;
-                console.log("Girdi");
-                Toastify({
-                    text: `${e.target.alt} Removed From Favorites.`,
-                    style: {
-                        background: "orange",
-                    },
-                    duration: 3000,
-                }).showToast();
+                // console.log("Girdi");
+                // Toastify({
+                //     text: `${e.target.alt} Removed From Favorites.`,
+                //     style: {
+                //         background: "orange",
+                //     },
+                //     duration: 3000,
+                // }).showToast();
                 likedDatas.length === 0
                     ? (nftBottom.innerHTML = "<h1>No Liked NFTs</h1>")
                     : "";
-                return;
+                return ;
             }
-            if (e.target.src.includes("heart-fill") && !inFavPage) {
+            else if (e.target.src.includes("heart-fill") && !inFavPage) {
                 e.target.src = "../../assests/svg/heart.svg";
                 likedDatas = likedDatas.filter((item) => item !== e.target.alt);
                 favoriteBtn.querySelector("span").innerHTML = likedDatas.length;
-                Toastify({
-                    text: `${e.target.alt} Removed From Favorites.`,
-                    style: {
-                        background: "orange",
-                    },
-                    duration: 3000,
-                }).showToast();
+                console.log("Girdi 22");
+                // Toastify({
+                //     text: `${e.target.alt} Removed From Favorites.`,
+                //     style: {
+                //         background: "orange",
+                //     },
+                //     duration: 3000,
+                // }).showToast();
                 return;
-            } if(!e.target.src.includes("heart-fill") && !inFavPage) {
+            }else if(!e.target.src.includes("heart-fill") && !inFavPage) {
                 e.target.src = "../../assests/svg/heart-fill.svg";
                 likedDatas.push(e.target.alt);
                 likedDatas = likedDatas.filter(
                     (item, index) => likedDatas.indexOf(item) === index
                 );
                 favoriteBtn.querySelector("span").innerHTML = likedDatas.length;
-                Toastify({
-                    text: `${e.target.alt} Added to Favorites.`,
-                    style: {
-                        background: "green",
-                    },
-                    duration: 3000,
-                }).showToast();
+                console.log("Cixdi");
+                // Toastify({
+                //     text: `${e.target.alt} Added to Favorites.`,
+                //     style: {
+                //         background: "green",
+                //     },
+                //     duration: 3000,
+                // }).showToast();
                 return;
             }
-            
         });
+        
     });
 }
 
@@ -177,7 +179,7 @@ async function getNfts(count = 0) {
         hasMore = nftsData.hasMore;
         nftCount.innerHTML = nftsData.totalCount;
         fillNfts(nftsData.nfts);
-        likedNFTS(inFavPage = false);
+        likedNFTS();
     } catch (err) {
         console.log(err);
         Toastify({
@@ -192,6 +194,7 @@ async function getNfts(count = 0) {
 
 /*! -------------------------- Load More Button -------------------------- */
 loadMoreBtn.addEventListener("click", () => {
+    likedNFTS();
     getNfts(3);
     if (!hasMore) {
         Toastify({
@@ -236,7 +239,6 @@ searchInput.addEventListener("keyup", async (e) => {
 });
 
 /*! -------------------------- INIT -------------------------- */
-
 
 
 setTimeout(() => {

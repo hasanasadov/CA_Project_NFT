@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Initializer Page with Animations</title>
+    <title>HAS NFT</title>
     <style>
+        /* Body Styling */
         body {
             display: flex;
             flex-direction: column;
@@ -12,98 +13,162 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #000000 30%, #434343 100%);
-            color: #ecf0f1;
-            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #111, #222); /* Subtle dark gradient */
+            color: #00cc66; /* Softer green */
+            font-family: 'Courier New', Courier, monospace; /* Terminal-like font */
             overflow: hidden;
             position: relative;
+            text-align: center;
         }
 
+        /* Title Animation (Typing Effect) */
         h1 {
-            animation: fadeIn 3s ease-in-out, slideIn 2s ease-in-out;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #00cc66;
+            width: 0;
+            animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+            font-size: 2.5rem; /* Adjusted for readability */
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
 
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #00cc66; }
         }
 
+        /* Button Styling */
         .animated-button {
             padding: 15px 30px;
-            font-size: 16px;
-            color: white;
-            background-color: #3498db;
+            font-size: 18px;
+            color: #0b0b0b; /* Dark button text */
+            background-color: #00cc66; /* Softer green button */
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            text-decoration: none;
             transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-            animation: bounce 2s infinite, pulse 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-15px); }
-            60% { transform: translateY(-7px); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
         }
 
         .animated-button:hover {
-            background-color: #2980b9;
+            background-color: #1f9e45; /* Darker green on hover */
             transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(41, 128, 185, 0.7);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 1);
         }
 
+        /* Link Styling */
         .animated-link {
             font-size: 18px;
-            color: #f39c12;
+            color: #00cc66;
             text-decoration: none;
-            margin-top: 20px;
-            animation: fadeIn 3s ease-in-out 1s forwards;
+            margin-top: 10px;
+            transition: text-shadow 0.3s ease;
         }
 
         .animated-link:hover {
-            color: #e67e22;
-            text-shadow: 0 0 5px #e67e22, 0 0 10px #e67e22;
+            text-shadow: 0 0 10px rgba(0, 204, 102, 0.7); /* Softer glow effect on hover */
         }
 
-        .circle {
+        /* Glitch Effect */
+        .glitch {
             position: absolute;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: rotate 10s linear infinite;
-            filter: blur(10px);
-            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                rgba(0, 255, 0, 0.03) 0,
+                rgba(0, 255, 0, 0.03) 2px,
+                transparent 2px,
+                transparent 4px
+            );
+            animation: glitchAnimation 1s infinite;
+            opacity: 0.15; /* Less prominent */
         }
 
-        @keyframes rotate {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        @keyframes glitchAnimation {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-10px, -5px); }
+            50% { transform: translate(10px, 5px); }
+            75% { transform: translate(-5px, 5px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .glitch:before, .glitch:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 0, 0.1);
+            pointer-events: none;
+        }
+
+        /* Falling Code Background */
+        .falling-code {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: url('https://www.transparenttextures.com/patterns/diagmonds-light.png'); /* Subtle pattern */
+            opacity: 0.05; /* Subtle falling code */
+            animation: fallingCode 10s linear infinite;
+        }
+
+        @keyframes fallingCode {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 100%;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 22px;
+            }
+            .animated-button, .animated-link {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 18px;
+            }
+            .animated-button, .animated-link {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="circle" style="top: 10%; left: 10%;"></div>
-    <div class="circle" style="bottom: 10%; right: 10%;"></div>
-    <div class="circle" style="top: 80%; left: 50%; transform: translateX(-50%);"></div>
-
-    <h1>Welcome to Hasan's NFT Project</h1>
+    <h1>Welcome to the Hasan's NFT Project!</h1> 
     <a class="animated-button" href="./client/pages/home/index.html">Go To Project</a>
     <a class="animated-link" href="./client/pages/home/index.html">Explore More!</a>
+
+    <!-- Glitch Background -->
+    <div class="glitch"></div>
+
+    <!-- Falling Code Effect -->
+    <div class="falling-code"></div>
 
 </body>
 </html>

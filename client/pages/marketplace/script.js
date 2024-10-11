@@ -1,4 +1,4 @@
-const  BASE_URL = "https://hasnft-server.vercel.app/";
+const  BASE_URL = "https://hasnft-server.vercel.app";
 
 const nfts = document.querySelector("#nfts");
 const nftBottom = document.querySelector(".nft-bottom");

@@ -1,4 +1,4 @@
-const  BASE_URL = "https://hasnft-server.vercel.app/";
+const  BASE_URL = "https://hasnft-server.vercel.app";
 const joinForm = document.querySelector(".form-join");
 const joinEmail = joinForm.querySelector("#join-email");
 

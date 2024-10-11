@@ -1,4 +1,4 @@
-const  BASE_URL = "https://hasnft-server.vercel.app/";
+const  BASE_URL = "https://hasnft-server.vercel.app";
 const nameinput = document.querySelector("#namediv input");
 const emailinput = document.querySelector("#emaildiv input");
 const pswinput = document.querySelector("#pswdiv input");

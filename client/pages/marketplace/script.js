@@ -1,3 +1,5 @@
+const  BASE_URL = "https://hasnft-server.vercel.app/";
+
 const nfts = document.querySelector("#nfts");
 const nftBottom = document.querySelector(".nft-bottom");
 const loadMoreBtn = document.querySelector("#load-more");
@@ -97,7 +99,7 @@ function likedNFTS(inFavPage = false) {
 function fillLikedNfts(likedDatas) {
     likedDatas.forEach(async (likedData) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/nfts`, {
+            const response = await fetch(`${BASE_URL}/api/nfts`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -165,7 +167,7 @@ let hasMore = true;
 async function getNfts(count = 0) {
     skip += count;
     try {
-        const response = await fetch(`http://localhost:3000/api/nfts`, {
+        const response = await fetch(`${BASE_URL}/api/nfts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -211,7 +213,7 @@ loadMoreBtn.addEventListener("click", () => {
 /*! -------------------------- Search NFTS -------------------------- */
 searchInput.addEventListener("keyup", async (e) => {
     try {
-        const response = await fetch(`http://localhost:3000/api/nfts`, {
+        const response = await fetch(`${BASE_URL}/api/nfts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

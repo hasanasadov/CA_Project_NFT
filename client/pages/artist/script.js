@@ -1,3 +1,4 @@
+const  BASE_URL = "https://hasnft-server.vercel.app/";
 const nfts = document.querySelector("#creators");
 const creatorBottom = document.querySelector(".creator-bottom");
 const profileImg = document.querySelector("#profile-img");
@@ -88,7 +89,7 @@ async function getCreatorInfo() {
     const urlParams = new URLSearchParams(window.location.search);
     const creatorId = urlParams.get("id");
     try {
-        const response = await fetch(`http://localhost:3000/api/creators/${creatorId}`);
+        const response = await fetch(`${BASE_URL}/api/creators/${creatorId}`);
         const creator = await response.json();
         return creator;
     } catch (error) {

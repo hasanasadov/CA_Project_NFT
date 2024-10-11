@@ -1,3 +1,4 @@
+const  BASE_URL = "https://hasnft-server.vercel.app/";
 const nameinput = document.querySelector("#namediv input");
 const emailinput = document.querySelector("#emaildiv input");
 const pswinput = document.querySelector("#pswdiv input");
@@ -212,7 +213,7 @@ async function postData(){
             email: emailinput.value,
             password: pswinput.value,
         }
-        let response = await fetch("http://localhost:3000/api/register", {
+        let response = await fetch(`${BASE_URL}/api/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

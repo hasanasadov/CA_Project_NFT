@@ -1,3 +1,4 @@
+const  BASE_URL = "https://hasnft-server.vercel.app/";
 // ------------------- Login Form Validation -----------------//
 const nameinput = document.querySelector("#namediv input");
 const pswinput = document.querySelector("#pswdiv input");
@@ -137,7 +138,7 @@ async function sendInfos() {
     let username = nameinput.value;
     let password = pswinput.value;
     try {
-        const response = await fetch(`http://localhost:3000/api/login`, {
+        const response = await fetch(`${BASE_URL}/api/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

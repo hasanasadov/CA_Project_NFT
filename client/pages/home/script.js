@@ -1,3 +1,4 @@
+const  BASE_URL = "https://hasnft-server.vercel.app/";
 const joinForm = document.querySelector(".form-join");
 const joinEmail = joinForm.querySelector("#join-email");
 
@@ -77,7 +78,7 @@ function createCreatorCard(creator) {
 
 async function getCreators() {
     try{
-        const response = await fetch("http://localhost:3000/api/creators");
+        const response = await fetch(`${BASE_URL}/api/creators`);
         const creators = await response.json();
         setTimeout(() => {
             creatorsElement.innerHTML = "";
@@ -138,7 +139,7 @@ function fillNfts(nftsData) {
 
 async function getNfts(count = 3) {
     try{
-        const response = await fetch(`http://localhost:3000/api/nfts`, {
+        const response = await fetch(`${BASE_URL}/api/nfts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
